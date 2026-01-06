@@ -231,54 +231,54 @@
       e.preventDefault();
       let valid = true;
 
-      // Full Name validation
-      const fullName = document.getElementById('fullName');
-      if (!fullName.value || /\d/.test(fullName.value)) {
-        fullName.classList.add('is-invalid');
-        valid = false;
-      } else fullName.classList.remove('is-invalid');
+      // Full Name
+if (!fullName.value || !/^[A-Za-z\s]{3,}$/.test(fullName.value.trim())) {
+  fullName.classList.add('is-invalid');
+  valid = false;
+} else fullName.classList.remove('is-invalid');
 
-      // Email validation
-      const email = document.getElementById('email');
-      if (!email.value) {
-        email.classList.add('is-invalid');
-        valid = false;
-      } else email.classList.remove('is-invalid');
+// Email
+if (!email.value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+  email.classList.add('is-invalid');
+  valid = false;
+} else email.classList.remove('is-invalid');
 
-      // Phone validation
-      const phone = document.getElementById('phone');
-      if (!phone.value || /\D/.test(phone.value)) {
-        phone.classList.add('is-invalid');
-        valid = false;
-      } else phone.classList.remove('is-invalid');
+// Phone (10 digits only)
+if (!phone.value || !/^\d{10}$/.test(phone.value)) {
+  phone.classList.add('is-invalid');
+  valid = false;
+} else phone.classList.remove('is-invalid');
 
-      // Role
-      const role = document.getElementById('role');
-      if (!role.value) {
-        role.classList.add('is-invalid');
-        valid = false;
-      } else role.classList.remove('is-invalid');
+// Role
+if (!role.value) {
+  role.classList.add('is-invalid');
+  valid = false;
+} else role.classList.remove('is-invalid');
 
-      // Team
-      const team = document.getElementById('team');
-      if (!team.value) {
-        team.classList.add('is-invalid');
-        valid = false;
-      } else team.classList.remove('is-invalid');
+// Team
+if (!team.value) {
+  team.classList.add('is-invalid');
+  valid = false;
+} else team.classList.remove('is-invalid');
 
-      // Call Target
-      const callTarget = document.getElementById('callTarget');
-      if (!callTarget.value || Number(callTarget.value) < 0) {
-        callTarget.classList.add('is-invalid');
-        valid = false;
-      } else callTarget.classList.remove('is-invalid');
+// Call Target (> 0)
+if (!callTarget.value || Number(callTarget.value) <= 0) {
+  callTarget.classList.add('is-invalid');
+  valid = false;
+} else callTarget.classList.remove('is-invalid');
 
-      // Monthly Target
-      const monthlyTarget = document.getElementById('monthlyTarget');
-      if (!monthlyTarget.value || Number(monthlyTarget.value) < 0) {
-        monthlyTarget.classList.add('is-invalid');
-        valid = false;
-      } else monthlyTarget.classList.remove('is-invalid');
+// Monthly Target (> 0)
+if (!monthlyTarget.value || Number(monthlyTarget.value) <= 0) {
+  monthlyTarget.classList.add('is-invalid');
+  valid = false;
+} else monthlyTarget.classList.remove('is-invalid');
+
+// Password (min 6 chars)
+if (!password.value || password.value.length < 6) {
+  password.classList.add('is-invalid');
+  valid = false;
+} else password.classList.remove('is-invalid');
+
 
       // Password
       const password = document.getElementById('password');
