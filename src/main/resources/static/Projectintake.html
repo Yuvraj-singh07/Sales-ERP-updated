@@ -521,15 +521,59 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => el.remove(), 6000);
   }
 
-  function validate(payload) {
-    const errs = [];
-    if (!payload.employeeName.trim()) errs.push("Employee name required");
-    if (!payload.projectName.trim()) errs.push("Project name required");
-    if (!payload.projectType.trim()) errs.push("Project type required");
-    if (!payload.projectStatus.trim()) errs.push("Project status required");
-    if (!payload.companyName.trim()) errs.push("Company name required");
-    return errs;
-  }
+  function validateForm(payload) {
+  let valid = true;
+
+  const setError = (id, msg) => {
+    const el = document.getElementById(id);
+    el.classList.add("is-invalid");
+    el.nextElementSibling.textContent = msg;
+    valid = false;
+  };
+
+  const clearError = (id) => {
+    const el = document.getElementById(id);
+    el.classList.remove("is-invalid");
+  };
+
+  // Employee Name
+  if (!payload.employeeName || !/^[A-Za-z\s]+$/.test(payload.employeeName)) {
+    setError("employeeName", "Employee name is required (letters only)");
+  } else clearError("employeeName");
+
+  // Employee ID
+  if (!payload.empId) {
+    setError("empId", "Employee ID is required");
+  } else clearError("empId");
+
+  // Project Name
+  if (!payload.projectName) {
+    setError("projectName", "Project name is required");
+  } else clearError("projectName");
+
+  // Project Type
+  if (!payload.projectType) {
+    setError("projectType", "Select project type");
+  } else clearError("projectType");
+
+  // Project Status
+  if (!payload.projectStatus) {
+    setError("projectStatus", "Select project status");
+  } else clearError("projectStatus");
+
+  // Company Name
+  if (!payload.companyName) {
+    setError("companyName", "Company name is required");
+  } else clearError("companyName");
+
+  // Intake Date
+  if (!payload.intakeDate) {
+    setError("dailyDate", "Intake date is required");
+  } else clearError("dailyDate");
+
+  return valid;
+}
+
 
   projectForm.addEventListener("submit", async (ev) => {
     ev.preventDefault();
@@ -547,12 +591,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Payload prepared:", payload);
 
-    const errs = validate(payload);
-    if (errs.length) {
-      showMessage(projectForm, errs.join("; "), "error");
-      console.warn("Validation failed:", errs);
-      return;
-    }
+   if (!validateForm(payload)) {
+  showMessage(projectForm, "Please fix highlighted errors", "error");
+  return;
+}
+
 
     const submitBtn = projectForm.querySelector('button[type="submit"]');
     if (submitBtn) submitBtn.disabled = true;
