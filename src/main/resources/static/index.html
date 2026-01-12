@@ -326,7 +326,22 @@
     <!-- Custom JS -->
     <script src="assets/JS/script.js"></script>
 
+   <script>
+  const sidebar = document.getElementById("sidebar");
+  const toggleBtn = document.getElementById("sidebarToggle");
+  const overlay = document.getElementById("sidebarOverlay");
 
+  toggleBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("show");
+    overlay.classList.toggle("active");
+  });
+
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("show");
+    overlay.classList.remove("active");
+  });
+  
+</script>
 </body>
 
 </html>
