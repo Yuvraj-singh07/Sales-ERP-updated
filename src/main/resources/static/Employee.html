@@ -19,6 +19,7 @@
 </head>
 
 <body>
+ <div id="sidebarOverlay"></div>
 
   <div id="wrapper">
     <nav id="sidebar" class="bg-dark text-white p-3">
@@ -531,7 +532,23 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="assets/JS/employee.js"></script>
+  <script src="assets/JS/employee.js"></script> 
+     <script>
+  const sidebar = document.getElementById("sidebar");
+  const toggleBtn = document.getElementById("sidebarToggle");
+  const overlay = document.getElementById("sidebarOverlay");
+
+  toggleBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("show");
+    overlay.classList.toggle("active");
+  });
+
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("show");
+    overlay.classList.remove("active");
+  });
+  
+</script>
 </body>
 
 </html>
