@@ -22,6 +22,8 @@
 
 <body>
   <!-- Sidebar -->
+  <div id="sidebarOverlay"></div>
+
   <div id="wrapper">
     <nav id="sidebar" class="bg-dark text-white p-3">
       <div class="text-center mb-4">
@@ -641,6 +643,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+         <script>
+  const sidebar = document.getElementById("sidebar");
+  const toggleBtn = document.getElementById("sidebarToggle");
+  const overlay = document.getElementById("sidebarOverlay");
+
+  toggleBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("show");
+    overlay.classList.toggle("active");
+  });
+
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("show");
+    overlay.classList.remove("active");
+  });
+  
+</script>
 
 </script>
 
