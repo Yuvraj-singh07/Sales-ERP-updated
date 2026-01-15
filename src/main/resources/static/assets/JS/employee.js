@@ -5,7 +5,7 @@
 function checkAuth() {
     const token = localStorage.getItem('authToken');
     if (!token) {
-        alert('Please login first (admin@saleserp.com)');
+        showToast("Please login first", "warning");
         window.location.href = 'login.html';
         return false;
     }
@@ -745,7 +745,7 @@ if (dailyCallForm) {
           const message = leadsGenerateValue === "yes" 
             ? "Daily Call Detail and Lead Form submitted successfully!" 
             : "Daily Call Detail Form submitted successfully!";
-          alert(message);
+          showToast(message, "success");
           dailyCallForm.reset();
           dailyCallForm.querySelectorAll(".form-control, .form-select")
             .forEach(f => f.classList.remove("is-invalid", "is-valid"));
@@ -758,7 +758,7 @@ if (dailyCallForm) {
         })
         .catch(err => {
           console.error("Error saving form details:", err);
-          alert("Failed to save form details: " + err.message);
+          showToast("Failed to save form details: " + err.message, "error");
         });
     }
  
