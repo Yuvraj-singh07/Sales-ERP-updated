@@ -202,8 +202,8 @@
 
           <div class="row g-3 mb-4">
             <div class="col-12 col-sm-6 col-lg-3">
-              <div class="card dashboard-card shadow-sm p-3 bg-primary text-white h-100"
-                style="border-radius: 12px; text-align: left;">
+              <div class="card dashboard-card shadow-sm p-3 text-white h-100"
+                style="border-radius: 12px; text-align: left; background-color: #A15CA0;">
                 <div>
                   <h6>Total Calls</h6>
                   <h3 id="kpiTotalCalls">0</h3>
@@ -212,8 +212,8 @@
             </div>
 
             <div class="col-12 col-sm-6 col-lg-3">
-              <div class="card dashboard-card shadow-sm p-3 bg-success text-white h-100"
-                style="border-radius: 12px; text-align: left;">
+              <div class="card dashboard-card shadow-sm p-3 text-white h-100"
+                style="border-radius: 12px; text-align: left; background-color: #de638a;">
                 <div>
                   <h6>Calls Meet Target</h6>
                   <h3 id="kpiSuccess">0%</h3>
@@ -222,8 +222,8 @@
             </div>
 
             <div class="col-12 col-sm-6 col-lg-3">
-              <div class="card dashboard-card shadow-sm p-3 bg-warning text-white h-100"
-                style="border-radius: 12px; text-align: left;">
+              <div class="card dashboard-card shadow-sm p-3 text-white h-100"
+                style="border-radius: 12px; text-align: left; background-color: #124c81;">
                 <div>
                   <h6>Average Duration</h6>
                   <h3 id="kpiDuration">0m 0s</h3>
@@ -232,8 +232,8 @@
             </div>
 
             <div class="col-12 col-sm-6 col-lg-3">
-              <div class="card dashboard-card shadow-sm p-3 bg-danger text-white h-100"
-                style="border-radius: 12px; text-align: left;">
+              <div class="card dashboard-card shadow-sm p-3 text-white h-100"
+                style="border-radius: 12px; text-align: left;  background-color: #9d8dde; ">
                 <div>
                   <h6>Active Agents</h6>
                   <h3 id="kpiAgents">0</h3>
@@ -245,10 +245,10 @@
 
       <!-- filter Form Container -->
       <div class="d-flex justify-content-end gap-2 mb-3 flex-wrap">
-        <button class="btn btn-outline-secondary" id="filterToggle">
+        <button class="btn" id="filterToggle" style=" background: linear-gradient(90deg, #1e90ff, #0b74d9); color: #fff;   box-shadow: 0 4px 12px rgba(30, 144, 255, 0.45);>
           <i class="fa-solid fa-filter me-1"></i> Show Filters
         </button>
-        <button class="btn btn-outline-primary" id="dailyDetailsBtn">
+        <button class="btn" id="dailyDetailsBtn" style="background-color: #003049; color: #fff;>
           <i class="fa-solid fa-calendar-day me-1"></i> Daily Call Details
         </button>
       </div>
@@ -286,8 +286,8 @@
 
           <!-- filter Form Buttons -->
           <div class="button-row mt-3">
-            <button type="reset" class="btn btn-outline-secondary action-btn">Reset</button>
-            <button type="submit" class="btn btn-primary action-btn">Apply filter</button>
+            <button type="reset" class="btn action-btn" style="background: linear-gradient(90deg, #1e90ff, #0b74d9); color: #fff;   box-shadow: 0 4px 12px rgba(30, 144, 255, 0.45); ">Reset</button>
+            <button type="submit" class="btn action-btn" style="background-color: #003049; color: #fff;>Apply filter</button>
           </div>
         </form>
       </div>
