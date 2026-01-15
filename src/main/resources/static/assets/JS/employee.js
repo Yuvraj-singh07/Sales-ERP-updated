@@ -796,3 +796,20 @@ document.getElementById("downloadPdfBtn").addEventListener("click", async () => 
         pdf.save("Weekly_Report.pdf");
     });
 });
+
+function showToast(message, type = "success") {
+  const toastEl = document.getElementById("appToast");
+  const toastMsg = document.getElementById("toastMessage");
+
+  toastEl.classList.remove("bg-success", "bg-danger", "bg-warning");
+  toastEl.classList.add(
+    type === "success" ? "bg-success" :
+    type === "error" ? "bg-danger" :
+    "bg-warning"
+  );
+
+  toastMsg.textContent = message;
+
+  const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+  toast.show();
+}
