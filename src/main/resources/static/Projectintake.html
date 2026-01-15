@@ -524,16 +524,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  function showMessage(container, text, kind = "success") {
-    const old = container.querySelector(".form-message");
-    if (old) old.remove();
-    const el = document.createElement("div");
-    el.className = "form-message small mt-2";
-    el.textContent = text;
-    el.style.color = kind === "error" ? "crimson" : "green";
-    container.appendChild(el);
-    setTimeout(() => el.remove(), 6000);
-  }
 
   function validateForm(payload) {
   let valid = true;
@@ -606,7 +596,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Payload prepared:", payload);
 
    if (!validateForm(payload)) {
-  showMessage(projectForm, "Please fix highlighted errors", "error");
+  showToast("Please fix highlighted errors", "warning");
   return;
 }
 
@@ -638,7 +628,7 @@ document.addEventListener("DOMContentLoaded", () => {
         throw new Error(msg);
       }
 
-      showMessage(projectForm, "Saved successfully.");
+      showToast("Project saved successfully", "success");
       projectForm.reset();
       dailyContainer.classList.add("d-none");
 
@@ -649,7 +639,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     } catch (err) {
       console.error("Submit error:", err);
-      showMessage(projectForm, `Save failed: ${err.message}`, "error");
+      showToast(`Save failed: ${err.message}`, "error");
     } finally {
       if (submitBtn) submitBtn.disabled = false;
     }
